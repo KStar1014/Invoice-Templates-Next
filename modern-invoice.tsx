@@ -1,173 +1,175 @@
 export default function ModernInvoice() {
   return (
-    <div className="max-w-4xl mx-auto bg-white p-8 shadow-lg font-sans">
-      {/* Header with gradient accent */}
-      <div className="relative mb-12">
-        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-violet-600 via-fuchsia-500 to-amber-500"></div>
-        <div className="pt-6 flex justify-between items-start">
+    <div className="max-w-4xl mx-auto bg-white p-0 shadow-lg font-sans relative">
+      {/* Diagonal green header - with no content */}
+      <div className="relative h-16 w-full overflow-hidden mt-5">
+        <div
+          className="absolute top-0 left-0 w-full h-full bg-emerald-500"
+          style={{ clipPath: "polygon(0 0, 66.7% 0, 53.3% 100%, 0 100%)" }}
+        ></div>
+      </div>
+
+      {/* Company logo and Invoice title - moved below the green band with wider margins */}
+      <div className="py-4" style={{ paddingLeft: "4.5rem", paddingRight: "4.5rem" }}>
+        <div className="flex justify-between items-center">
+          <div className="flex items-center">
+            <div className="bg-emerald-500 rounded-full p-1 mr-2">
+              <div className="bg-white rounded-full w-6 h-6 flex items-center justify-center">
+                <div className="bg-emerald-500 rounded-full w-2 h-2"></div>
+              </div>
+            </div>
+            <div>
+              <p className="font-bold uppercase text-sm text-gray-800">Ingoude</p>
+              <p className="text-xs uppercase text-gray-600">Company</p>
+            </div>
+          </div>
+          <div className="text-right">
+            <h1 className="text-5xl font-bold text-gray-800">INVOICE</h1>
+          </div>
+        </div>
+      </div>
+
+      {/* Main content with wider margins */}
+      <div className="py-6" style={{ paddingLeft: "4.5rem", paddingRight: "4.5rem" }}>
+        {/* Client and Invoice Info */}
+        <div className="grid grid-cols-2 gap-8 mb-8">
           <div>
-            <h1 className="text-4xl font-bold text-gray-800">INVOICE</h1>
-            <p className="text-gray-500 mt-1">#INV-12345</p>
+            <h2 className="text-sm font-bold text-gray-500 mb-2">BILLING TO</h2>
+            <p className="font-medium">Adeline Palmerston</p>
+            <p className="text-sm text-gray-600">123 Anywhere St., Any City, ST 12345</p>
           </div>
+          <div className="text-right">
+            <div className="space-y-1">
+              <div className="flex justify-end">
+                <p className="text-sm text-gray-500 mr-4">Invoice No.</p>
+                <p className="font-medium">#1234</p>
+              </div>
+              <div className="flex justify-end">
+                <p className="text-sm text-gray-500 mr-4">Invoice Date</p>
+                <p className="font-medium">25 June, 2022</p>
+              </div>
+              <div className="flex justify-end">
+                <p className="text-sm text-gray-500 mr-4">Due date</p>
+                <p className="font-medium">30 June, 2022</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Line Items - adjusted for wider margins */}
+        <div className="mb-8 -mx-0">
+          <table className="w-full">
+            <thead>
+              <tr className="bg-emerald-500 text-white">
+                <th className="px-4 py-2 text-left text-sm font-medium">ITEM NAME</th>
+                <th className="px-4 py-2 text-right text-sm font-medium">PRICE</th>
+                <th className="px-4 py-2 text-right text-sm font-medium">QTY</th>
+                <th className="px-4 py-2 text-right text-sm font-medium">TOTAL</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="bg-gray-100">
+                <td className="px-4 py-3 text-sm">Logo design</td>
+                <td className="px-4 py-3 text-sm text-right">$100</td>
+                <td className="px-4 py-3 text-sm text-right">0</td>
+                <td className="px-4 py-3 text-sm text-right">$100</td>
+              </tr>
+              <tr className="bg-white">
+                <td className="px-4 py-3 text-sm">Brand identity</td>
+                <td className="px-4 py-3 text-sm text-right">$100</td>
+                <td className="px-4 py-3 text-sm text-right">0</td>
+                <td className="px-4 py-3 text-sm text-right">$100</td>
+              </tr>
+              <tr className="bg-gray-100">
+                <td className="px-4 py-3 text-sm">Website design</td>
+                <td className="px-4 py-3 text-sm text-right">$100</td>
+                <td className="px-4 py-3 text-sm text-right">0</td>
+                <td className="px-4 py-3 text-sm text-right">$100</td>
+              </tr>
+              <tr className="bg-white">
+                <td className="px-4 py-3 text-sm">Banner design</td>
+                <td className="px-4 py-3 text-sm text-right">$100</td>
+                <td className="px-4 py-3 text-sm text-right">0</td>
+                <td className="px-4 py-3 text-sm text-right">$100</td>
+              </tr>
+              <tr className="bg-gray-100">
+                <td className="px-4 py-3 text-sm">Stationary design</td>
+                <td className="px-4 py-3 text-sm text-right">$100</td>
+                <td className="px-4 py-3 text-sm text-right">0</td>
+                <td className="px-4 py-3 text-sm text-right">$100</td>
+              </tr>
+              <tr className="bg-white">
+                <td className="px-4 py-3 text-sm">SUBTOTAL</td>
+                <td className="px-4 py-3 text-sm text-right">$100</td>
+                <td className="px-4 py-3 text-sm text-right">0</td>
+                <td className="px-4 py-3 text-sm text-right">$100</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        {/* Totals */}
+        <div className="flex justify-end mb-8">
+          <div className="w-64">
+            <div className="flex justify-between py-2">
+              <span className="text-sm font-medium">SUB TOTAL</span>
+              <span className="text-sm font-medium">$100</span>
+            </div>
+            <div className="flex justify-between py-2">
+              <span className="text-sm font-medium">TOTAL</span>
+              <span className="text-sm font-medium">0.00 %</span>
+            </div>
+            <div className="flex justify-between py-2">
+              <span className="text-sm font-bold">TOTAL</span>
+              <span className="text-sm font-bold">$100</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Terms and Signature */}
+        <div className="grid grid-cols-2 gap-8 mb-8">
           <div>
-            <img
-              src="https://img.freepik.com/premium-vector/abstract-colorful-bird-logo-design_650075-1526.jpg"
-              alt="Lloyd Remodeling Logo"
-              className="h-16 w-auto object-contain"
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* Company and Client Info */}
-      <div className="grid grid-cols-2 gap-12 mb-12">
-        <div>
-          <h2 className="text-lg font-bold text-violet-700 mb-4">FROM</h2>
-          <div className="space-y-1">
-            <p className="font-medium">Lloyd Remodeling</p>
-            <p className="text-gray-600">456 Oak Avenue</p>
-            <p className="text-gray-600">Townsville, USA</p>
-            <p className="text-gray-600">jane.smith@example.com</p>
-            <p className="text-gray-600">+1 (987) 654-3210</p>
-          </div>
-        </div>
-        <div>
-          <h2 className="text-lg font-bold text-violet-700 mb-4">TO</h2>
-          <div className="space-y-1">
-            <p className="font-medium">Martin Sanchez</p>
-            <p className="text-gray-600">8904 La Mesa Blvd</p>
-            <p className="text-gray-600">San Diego, CA 91988</p>
-            <p className="text-gray-600">martin.Sanchez@gmail.com</p>
-            <p className="text-gray-600">858-780-5520</p>
-          </div>
-        </div>
-      </div>
-
-      {/* Invoice Details */}
-      <div className="grid grid-cols-3 gap-6 mb-12 bg-gradient-to-br from-violet-50 to-fuchsia-50 p-6 rounded-lg">
-        <div>
-          <p className="text-sm text-violet-600 font-medium">Issue Date</p>
-          <p className="font-medium">2023-09-12</p>
-        </div>
-        <div>
-          <p className="text-sm text-violet-600 font-medium">Due Date</p>
-          <p className="font-medium">2023-10-12</p>
-        </div>
-        <div>
-          <p className="text-sm text-violet-600 font-medium">Project</p>
-          <p className="font-medium">Kids Room Remodeling</p>
-        </div>
-      </div>
-
-      {/* Line Items */}
-      <div className="mb-12">
-        <table className="w-full">
-          <thead>
-            <tr className="bg-gradient-to-r from-violet-100 to-fuchsia-100 rounded-lg">
-              <th className="px-4 py-3 text-left text-sm font-semibold text-violet-700 rounded-l-lg">Item</th>
-              <th className="px-4 py-3 text-left text-sm font-semibold text-violet-700">Description</th>
-              <th className="px-4 py-3 text-right text-sm font-semibold text-violet-700">Qty</th>
-              <th className="px-4 py-3 text-right text-sm font-semibold text-violet-700">Price</th>
-              <th className="px-4 py-3 text-right text-sm font-semibold text-violet-700 rounded-r-lg">Amount</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-200">
-            <tr>
-              <td className="px-4 py-4 text-sm font-medium">Faucet Replacement</td>
-              <td className="px-4 py-4 text-sm text-gray-600 max-w-xs">
-                Swift and expert replacement of worn-out kitchen faucet with a high-quality, durable alternative.
-              </td>
-              <td className="px-4 py-4 text-sm text-right">5 pcs</td>
-              <td className="px-4 py-4 text-sm text-right">$150</td>
-              <td className="px-4 py-4 text-sm text-right font-medium">$750</td>
-            </tr>
-            <tr>
-              <td className="px-4 py-4 text-sm font-medium">Subway Tile Backsplash</td>
-              <td className="px-4 py-4 text-sm text-gray-600 max-w-xs">
-                Swift and expert replacement of worn-out kitchen faucet with a high-quality, durable alternative.
-              </td>
-              <td className="px-4 py-4 text-sm text-right">8 hrs</td>
-              <td className="px-4 py-4 text-sm text-right">$120</td>
-              <td className="px-4 py-4 text-sm text-right font-medium">$960</td>
-            </tr>
-            <tr>
-              <td className="px-4 py-4 text-sm font-medium">Black Sackcloth</td>
-              <td className="px-4 py-4 text-sm text-gray-600 max-w-xs">
-                Upgrade your toilet system to enhance efficiency and conserve water.
-              </td>
-              <td className="px-4 py-4 text-sm text-right">8 hrs</td>
-              <td className="px-4 py-4 text-sm text-right">$120</td>
-              <td className="px-4 py-4 text-sm text-right font-medium">$960</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      {/* Totals */}
-      <div className="flex justify-end mb-12">
-        <div className="w-72 bg-gradient-to-br from-violet-50 to-fuchsia-50 p-6 rounded-lg">
-          <div className="flex justify-between py-2">
-            <span className="text-gray-600">Subtotal</span>
-            <span className="font-medium">$2,250.90</span>
-          </div>
-          <div className="flex justify-between py-2">
-            <span className="text-gray-600">Tax (8.75%)</span>
-            <span className="font-medium">$129.36</span>
-          </div>
-          <div className="flex justify-between py-2">
-            <span className="text-gray-600">Discount</span>
-            <span className="font-medium">-$350.50</span>
-          </div>
-          <div className="flex justify-between py-2">
-            <span className="text-gray-600">Delivery Fee</span>
-            <span className="font-medium">$25.00</span>
-          </div>
-          <div className="flex justify-between py-2">
-            <span className="text-gray-600">Deposit</span>
-            <span className="font-medium">-$500.00</span>
-          </div>
-          <div className="flex justify-between py-2 border-t border-gray-300 mt-2">
-            <span className="font-bold">Balance Due</span>
-            <span className="font-bold text-xl text-gradient bg-clip-text text-transparent bg-gradient-to-r from-violet-600 to-fuchsia-600">
-              $3,400.00
-            </span>
-          </div>
-        </div>
-      </div>
-
-      {/* Payment Info */}
-      <div className="grid grid-cols-2 gap-8 mb-12">
-        <div className="bg-gradient-to-br from-violet-50 to-fuchsia-50 p-6 rounded-lg">
-          <h3 className="font-bold text-violet-700 mb-4">Payment Methods</h3>
-          <div className="space-y-2 text-sm">
-            <p>
-              <span className="font-medium">Bank Transfer:</span> Bank of America
-            </p>
-            <p>
-              <span className="font-medium">Account Holder:</span> John Smith
-            </p>
-            <p>
-              <span className="font-medium">Account Number:</span> 13494590
+            <h3 className="text-sm font-bold mb-2">TERMS & CONDITIONS</h3>
+            <p className="text-xs text-gray-600">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et hendrerit nisi, efficitur at
+              vestibulum erat. Sed non ex at tellus efficitur fringilla. Aliquam erat volutpat. Sed ut eleifend massa.
             </p>
           </div>
-        </div>
-        <div className="bg-gradient-to-br from-violet-50 to-fuchsia-50 p-6 rounded-lg">
-          <h3 className="font-bold text-violet-700 mb-4">Terms & Conditions</h3>
-          <p className="text-sm text-gray-600">
-            Payment is due within 7 days of the invoice date. Late payments may incur a 5% late fee.
-          </p>
+          <div className="flex justify-end items-end">
+            <div className="border-t border-gray-300 w-48 text-center pt-1">
+              <p className="text-xs text-gray-500">SIGNATURE</p>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Footer */}
-      <div className="border-t border-gray-200 pt-6 flex justify-between items-center">
-        <div>
-          <p className="text-gray-500">https://www.taglinecompany.com</p>
-        </div>
-        <div className="text-right">
-          <p className="text-lg font-medium text-gradient bg-clip-text text-transparent bg-gradient-to-r from-violet-600 to-fuchsia-600">
-            Thank you for your business!
-          </p>
+      {/* Footer - with black left band, light green right band, and white gap */}
+      <div className="relative h-26 w-full overflow-hidden bg-white" style={{ marginBottom: "10px" }}>
+        {/* First part - black */}
+        <div
+          className="absolute bottom-0 left-0 w-2/3 h-full bg-black"
+          style={{ clipPath: "polygon(0 0, 100% 0, 70% 100%, 0 100%)" }}
+        ></div>
+        {/* Second part - light green */}
+        <div
+          className="absolute bottom-0 right-0 w-1/2 h-full bg-emerald-300"
+          style={{ clipPath: "polygon(35% 0, 100% 0, 100% 100%, 10% 100%)" }}
+        ></div>
+        <div className="relative z-10 flex justify-between items-center" style={{ padding: "1rem 4.5rem" }}>
+          <div className="flex items-center space-x-4">
+            <div className="flex items-center">
+              <div className="bg-white rounded-full p-1 w-6 h-6 flex items-center justify-center mr-1">
+                <div className="bg-emerald-500 rounded-full w-4 h-4 flex items-center justify-center"></div>
+              </div>
+              <span className="text-xs text-white">info@example.com</span>
+            </div>
+            <div className="flex items-center">
+              <div className="bg-white rounded-full p-1 w-6 h-6 flex items-center justify-center mr-1">
+                <div className="bg-emerald-500 rounded-full w-4 h-4 flex items-center justify-center"></div>
+              </div>
+              <span className="text-xs text-white">+123 456 7890</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
