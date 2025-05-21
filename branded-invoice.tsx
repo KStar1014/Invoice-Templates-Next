@@ -192,7 +192,7 @@ export default function BrandedInvoice() {
             </div>
             <div className="overflow-hidden rounded-lg shadow-sm">
               <img
-                src="https://www.thespruce.com/thmb/cg-QxzJ8QHIMqik2UTPlTAnA6l4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ladylandscapefrontyard-3a7705e4550045b08448b2e3f026528b.jpgc"
+                src="https://www.thespruce.com/thmb/cg-QxzJ8QHIMqik2UTPlTAnA6l4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ladylandscapefrontyard-3a7705e4550045b08448b2e3f026528b.jpg"
                 alt="The best front view of the yard"
                 className="w-full h-40 object-cover"
               />
